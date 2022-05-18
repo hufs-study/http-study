@@ -57,7 +57,7 @@ http://joe:joespasswd*www.joes-hardware.com/sales_info.txt
 ## 3절 단축 URL
 
 > `URL` = `상대 URL` + `절대 URL`  
-> `상대 URL` = base를 기반으로 한 상대적인 경로
+> `상대 URL` = base를 기반으로 한 상대적인 경로  
 > `절대 URL` = 리소스에 접근하는데 필요한 모든 정보
 
 ```HTML
@@ -113,4 +113,4 @@ http://joe:joespasswd*www.joes-hardware.com/sales_info.txt
 |$, +|선점|
 |@, &, =|특정 스킴에서 특별한 의미가 있기 때문에 선점|
 |{, }, `|`, \ , - [, ]|게이트웨이와 같은 여러 전송 에이전트에서 불안전하게 다루기 때문에 제한|
-|(, )|`httpL//www.naver.com)`, URL 범위 밖에서 역할이 있는 문자이기 때문에 반드시 인코딩|
+|(, )|`http://www.naver.com)`, URL 범위 밖에서 역할이 있는 문자이기 때문에 반드시 인코딩|
