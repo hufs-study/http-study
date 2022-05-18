@@ -8,6 +8,7 @@ HTTP는 **신뢰성 있는 데이터 전송 프로토콜**을 사용하기 때�
 
 개발자는 인터넷의 결함이나 약점에 대한 걱정 없이 애플리케이션 고유의 기능을 구현하는데 집중할 수 있다.
 
+
 ## 1.2 웹 클라이언트와 서버
 
 HTTP 클라이언트와 HTTP 서버는 월드 와이드 웹의 기본 요소이다.
@@ -18,7 +19,10 @@ HTTP 클라이언트와 HTTP 서버는 월드 와이드 웹의 기본 요소이�
     - 마이크로소프트 인터넷 익스플러러나 구글 크롬 같은 웹브라우저
     - 웹 브라우저는 서버에서 HTTP 객체를 요청하고 사용자의 화면에 보여준다.
 
-![Untitled](./img/1.png)
+<div align="center">
+    <img src="./img/1.png" alt="" style="width: 550px" />
+</div>
+
 
 1. 웹브라우저는 HTTP 요청을 [www.oreilly.com](http://www.oreilly.com) 서버로 보낸다.
 2. 서버는 요청 받은 객체(”/index.html”)을 찾고, 성공했다면 그것의 타입, 길이 등의 정보와 함께 HTTP 응답에 실어서 클라이언트에게 보낸다.
@@ -33,7 +37,9 @@ HTTP 클라이언트와 HTTP 서버는 월드 와이드 웹의 기본 요소이�
     - 사용자가 누구인지, 어떤 정보를 요청했는지, 몇 시인지에 따라 다른 콘텐츠를 생성한다.
     - 카메라 라이브 영상, 주식 거래, 부동산 테이터베이스 검색
 
-![Untitled](./img/2.png)
+<div align="center">
+    <img src="./img/2.png" alt="" style="width: 550px" />
+</div>
 
 ### 1.3.1 미디어 타입
 
@@ -42,15 +48,21 @@ HTTP 클라이언트와 HTTP 서버는 월드 와이드 웹의 기본 요소이�
     - 웹 브라우저는 서버로 부터 객체를 돌려받을 때, 다룰 수 있는 객체인지 MIME 타입을 통해 확인한다.
     - 사선(/)으로 구분된 주 타입(primary object type)과 부 타입(specific subtype)으로 이루어진 문자열 라벨이다.
 
-![Untitled](./img/3.png)
+<div align="center">
+    <img src="./img/3.png" alt="" style="width: 550px" />
+</div>
+
 
 ### 1.3.2 URI
 
 - 통합 자원 식별자 (uniform resource identifier)
     - 인터넷의 우편물 주소와 같이, 정보 리소스를 고유하게 식별하고 위치를 지정할 수 있다.
     - URI에는 URL과 URN이 있다.
+    - 
+<div align="center">
+    <img src="./img/4.png" alt="" style="width: 550px" />
+</div>
 
-![Untitled](./img/4.png)
 
 ### 1.3.3 URL
 
@@ -59,7 +71,10 @@ HTTP 클라이언트와 HTTP 서버는 월드 와이드 웹의 기본 요소이�
     - 특정 서버의 한 리소스에 대한 구체적인 위치를 서술한다.
     - 대부분의 URL은 세 부분으로 이루어진 표준 포맷을 따른다.
         
-![Untitled](./img/5.png)
+<div align="center">
+    <img src="./img/5.png" alt="" style="width: 550px" />
+</div>
+
 
 ### 1.3.4 URN
 
@@ -73,7 +88,10 @@ HTTP 트랜젝션은 요청 명령(클라이언트 → 서버)와 응답 결과(
 
 이 상호작용은 **HTTP 메세지**라고 불리는 정형화된 데이터 덩어리를 이용해 이루어진다.
 
-![Untitled](./img/6.png)
+<div align="center">
+    <img src="./img/6.png" alt="" style="width: 550px" />
+</div>
+
 
 ### 1.4.1 메서드
 
@@ -81,7 +99,10 @@ HTTP 메서드는 서버에게 어떤 동작이 취해져야 하는지 말해준
 
 아래는 흔히 쓰는 HTTP 메서드 종류이다.
 
-![Untitled](./img/7.png)
+<div align="center">
+    <img src="./img/7.png" alt="" style="width: 550px" />
+</div>
+
 
 
 ### 1.4.2 상태 코드
@@ -92,7 +113,10 @@ HTTP 메서드는 서버에게 어떤 동작이 취해져야 하는지 말해준
 
 HTTP는 각 숫자 상태 코드에 텍스트로 된 “**사유 구절(reason phrase)**”도 함께 보낸다.
 
-![Untitled](./img/8.png)
+<div align="center">
+    <img src="./img/8.png" alt="" style="width: 550px" />
+</div>
+
 
 ## 1.5 메시지
 
@@ -107,7 +131,10 @@ HTTP 메시지는 단순한 줄 단위의 문자열이다.
 
 HTTP 메시지는 다음의 세 부분으로 이루어진다.
 
-![Untitled](./img/9.png)
+<div align="center">
+    <img src="./img/9.png" alt="" style="width: 550px" />
+</div>
+
 
 1. **시작줄**
     
@@ -154,7 +181,10 @@ TCP/IP는 각 네트워크와 하드웨어의 특성을 숨기고, 어떤 종류
 
 HTTP 프로토콜은 TCP 위의 계층이다. HTTP는 자신의 메시지 데이터를 전송하기 위해 TCP를 사용한다.
 
-![Untitled](./img/10.png)
+<div align="center">
+    <img src="./img/10.png" alt="" style="width: 550px" />
+</div>
+
 
 ### 1.6.2 접속, IP 주소 그리고 포트 번호
 
@@ -178,7 +208,10 @@ TCP에는 서버 컴퓨터에 대한 IP 주소와 그 서버에서 실행 중인
 
 (g) 커넥션이 닫히면, 웹 브라우저는 문서를 보여준다.
 
-![Untitled](./img/11.png)
+<div align="center">
+    <img src="./img/11.png" alt="" style="width: 550px" />
+</div>
+
 
 ## 1.7 웹의 구성요소
 
@@ -190,7 +223,10 @@ TCP에는 서버 컴퓨터에 대한 IP 주소와 그 서버에서 실행 중인
 
 요청과 응답을 필터링한다.
 
-![Untitled](./img/12.png)
+<div align="center">
+    <img src="./img/12.png" alt="" style="width: 550px" />
+</div>
+
 
 ### 1.7.2 캐시
 
@@ -198,7 +234,10 @@ TCP에는 서버 컴퓨터에 대한 IP 주소와 그 서버에서 실행 중인
 
 클라이언트는 멀리 떨어진 웹 서버보다 근처의 캐시에서 훨씬 더 빨리 문서를 다운받을 수 있다.
 
-![Untitled](./img/13.png)
+<div align="center">
+    <img src="./img/13.png" alt="" style="width: 550px" />
+</div>
+
 
 ### 1.7.3 게이트웨이
 
@@ -208,7 +247,10 @@ TCP에는 서버 컴퓨터에 대한 IP 주소와 그 서버에서 실행 중인
 
 예를 들어, HTTP/FTP 게이트웨이는 FTP URI에 대한 HTTP 요청을 받아들인 뒤, FTP 프로토콜을 이용해 문서를 가져온다. 받아온 문서는 HTTP 메시지에 담겨 클라이언트에게 보낸다.
 
-![Untitled](./img/14.png)
+<div align="center">
+    <img src="./img/14.png" alt="" style="width: 550px" />
+</div>
+
 
 ### 1.7.4 터널
 
@@ -218,7 +260,10 @@ HTTP 터널은 주로 비 HTTP 데이터를 하나 이상의 HTTP 연결을 통�
 
 예를 들어, HTTP/SSL 터널은 HTTP 요청을 받아들여 목적지의 주소와 포트번호로 커넥션을 맺는다. 이후부터는 암호화된 SSL 트래픽을 HTTP 채널을 통해 목적지 서버로 전송할 수 있게 된다.
 
-![Untitled](./img/15.png)
+<div align="center">
+    <img src="./img/15.png" alt="" style="width: 550px" />
+</div>
+
 
 ### 1.7.5 에이전트
 
