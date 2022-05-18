@@ -10,7 +10,10 @@ URL은 전자정보 일부를 가리키고 그것이 어디에 있고 어떻게 
 
 URL은 브라우저가 더 영리하게 리소스에 접근하고 그것을 다루게 함으로써 온라인 세상을 단순화시킨다.
 
-![Untitled](1.png)
+<div align="center">
+    <img src="./img/1.png" alt="" style="width: 550px" />
+</div>
+
 
 ## 2.2 URL 문법
 
@@ -88,7 +91,10 @@ HTML 같은 리소스 형식들은 본래의 수준보다 더 작게 나뉠 수 
 
 일반적으로 HTTP 서버는 객체 일부가 아닌 전체만 다루기 때문에, 클라이언트는 서버에 프래그먼트를 전달하지 않는다. 브라우저가 서버로부터 전체 리소스를 내려받은 후, 프래그먼트를 사용하여 보고자하는 리소스의 일부를 보여준다.
 
-![Untitled](2.png)
+<div align="center">
+    <img src="./img/2.png" alt="" style="width: 550px" />
+</div>
+
 
 ## 2.3 단축 URL
 
@@ -105,7 +111,10 @@ URL에는 절대 URL과 상대 URL이 있다.
 
 상대 URL로 리소스에 접근하는데 필요한 모든 정보를 읽기 위해서는, 기저(base)라고 하는 다른 URL을 사용해야한다.
 
-![Untitled](3.png)
+<div align="center">
+    <img src="./img/3.png" alt="" style="width: 550px" />
+</div>
+
 
 ### 2.3.2 URL 확장
 
@@ -123,12 +132,17 @@ URL 설계자들은 이스케이프라는 기능을 추가해 안전하지 않�
 
 인코딩은 안전하지 않은 문자를 퍼센티지 기호(%)로 시작해, ASCII코드로 표현되는 두개의 16진수 숫자로 이루어진 ‘이스케이프'문자로 바꾼다.
 
-![Untitled](4.png)
+<div align="center">
+    <img src="./img/4.png" alt="" style="width: 550px" />
+</div>
 
 ### 2.4.2 문자 제한
 
 아래의 표는 URL에서 예약된 문자들을 본래의 목적이 아닌 다른 용도로 사용하려면, 그 전에 만드시 인코딩해야하는 문자들이다.
 
-![Untitled](5.png)
+<div align="center">
+    <img src="./img/5.png" alt="" style="width: 550px" />
+</div>
+
 
 [이미지 참조](https://www.google.com/url?sa=i&url=https%3A%2F%2Fvelog.io%2F%40hye_b%2FHTTP-%25EC%2599%2584%25EB%25B2%25BD-%25EA%25B0%2580%25EC%259D%25B4%25EB%2593%259C-1.-HTTP-%25EC%259B%25B9%25EC%259D%2598-%25EA%25B8%25B0%25EC%25B4%2588-2&psig=AOvVaw06Y2JZ8sE3psJBFpV6OUGm&ust=1652948134672000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKimn-jN6PcCFQAAAAAdAAAAABAV)
