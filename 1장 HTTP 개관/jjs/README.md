@@ -25,8 +25,8 @@ Uniform resource **Identifier** : URI를 통해 리소스를 찾아올 수 있�
 - URL : **(Locator)** 리소스의 구체적인 위치, 접근 방법 표현
   - http://www.joes-hardware.com/specials/saw-blade.gif
     1. Scheme : 리소스 접근 프로토콜
-    2. 서버 주소
-    3. 웹 서버의 리소스
+    2. 서버 주소 : 리소스가 어디에 호스팅 되어 있는지 알려줌
+    3. 웹 서버 리소스 경로 : 서버 존재하는 로컬 리소스 중 요청받은 리소스 알려줌
 - URN : **(Name)**
 
 <br>
