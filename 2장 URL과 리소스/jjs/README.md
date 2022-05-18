@@ -43,7 +43,8 @@ URL은 리소스의 **위치**를 가리킨다. ⇒ 정보를 제공한다.
 ### 2.2.4 : 경로
 
 - 서버가 리소스의 위치를 찾는데 사용하는 정보
-  - http://www.joes-hardware.com:80**/seasonal/index-fall.html**
+  - http://www.joes-hardware.com:80
+  - /seasonal/index-fall.html
 
 <br>
 
@@ -51,7 +52,8 @@ URL은 리소스의 **위치**를 가리킨다. ⇒ 정보를 제공한다.
 
 - 경로가 가지는 자체 컴포넌트
 - 어플리케이션이 서버에 정확한 요청을 하기 위해 필요한 입력 파라미터를 받는데 사용
-  - http://www.joes-hardware.com/hammers**;sale=false**/index.html**;graphics=true**
+  - http://www.joes-hardware.com
+  - /hammers;sale=false/index.html;graphics=true
     - hammers → sale=false / index.html → graphics=true
 
 <br>
@@ -59,7 +61,9 @@ URL은 리소스의 **위치**를 가리킨다. ⇒ 정보를 제공한다.
 ### 2.2.6 : 질의 문자열
 
 - 요청받을 리소스 형식의 범위를 좁히기 위해 사용
-  - http://www.joes-hardware.com/inventory-check.cgi**?item=12731&color=blue**
+  - http://www.joes-hardware.com/inventory-check.cgi
+  - ?item=12731&color=blue
+
     (게이트웨이를 가리키는 URL의 경로 컴포넌트와 함께 전달)
 
 <br>
@@ -67,7 +71,9 @@ URL은 리소스의 **위치**를 가리킨다. ⇒ 정보를 제공한다.
 ### 2.2.7 : 프래그먼트
 
 - HTML 문서의 더 작게 나뉘어진 리소스들의 일부를 가리키기 위해서 사용
-  - http://www.joes-hardware.com/tools.html/**#drills**
+  - http://www.joes-hardware.com/tools.html
+  - /#drills
+
     (프래그먼트는 서버에 전송하지 않고 전체 리소스를 내려받은 후 보고자하는 일부를 보여줌)
 
 <br>
