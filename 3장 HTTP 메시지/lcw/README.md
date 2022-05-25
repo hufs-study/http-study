@@ -261,6 +261,8 @@ HTTP는 필요에 따라 확장해도 문제 없도록 설계되어있다.
 
 애플리케이션 개발자들에 의해 만들어졌지만 아직 승인된 HTTP 명세서에는 추가되지 않은 비표준 헤더다.
 
+## 참고문헌
+
 [HTTP 상태 코드 정리](https://www.whatap.io/ko/blog/40/)
 
 [HTTP에서 POST와 PUT의 차이점](https://guseowhtjs.tistory.com/entry/HTTP%EC%97%90%EC%84%9C-POST%EC%99%80-PUT%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90%EC%9D%80-%EB%AC%B4%EC%97%87%EC%9E%85%EB%8B%88%EA%B9%8C)
