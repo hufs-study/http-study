@@ -29,8 +29,9 @@
 
 <div align="center">
     <img src="./img/2.png" alt="" style="width: 700px" />
-</div>
+</div>  
 
+<br/><br/>
 
 # 4장 커넥션 관리
 
@@ -42,7 +43,7 @@
 http://www.joes-hardware.com:80/power-tools.html
 ```
 
-1. [브라우저] www.joes-hardware.com라는 호스트명 호출하기
+1. [브라우저] www.joes-hardware.com 라는 호스트명 호출하기
 2. [브라우저] 호스트 명에 대한 IP 주소 찾기
 3. [브라우저] 포트 번호(80) 얻기
 4. [브라우저] IP의 80포트로 TCP 커넥션 생성하기
@@ -67,7 +68,9 @@ http://www.joes-hardware.com:80/power-tools.html
 <div align="center">
     <img src="./img/3.png" alt="" style="width: 700px" />
 </div>
-<br>
+
+<br/><br/>
+
 
 
 ## 4.2 TCP의 성능에 대한 고려
@@ -102,7 +105,8 @@ http://www.joes-hardware.com:80/power-tools.html
 
 - TCP가 한 번에 전송할 수 있는 패킷의 수를 제한한다.
 - 처음에는 커넥션의 최대 속도를 제한하고 데이터가 성공적으로 전송됨에 따라서 속도 제한을 높여나간다.
-<br>
+
+<br/><br/>
 
 ## 4.3 HTTP 커넥션 관리
 
@@ -145,6 +149,7 @@ Connection : meter, close, bill-my-credit-card
 
 <br>
 
+<br/><br/>
 
 ## 4.4 병렬 커넥션
 
@@ -152,8 +157,7 @@ Connection : meter, close, bill-my-credit-card
 - 각 커넥션의 지연 시간을 겹치게 하면 총 지연 시간을 줄일 수 있다.
 - 클라이언트의 인터넷 대역폭을 한 개의 커넥션이 다 써버리는 것이 아니라면 나머지 객체를 내려받는 데에 남은 대역폭을 사용할 수 있다.
 
-<br>
-
+<br/><br/>
 
 ## 4.5 지속 커넥션
 
