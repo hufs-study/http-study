@@ -84,7 +84,7 @@ func processClient(connection net.Conn) {
 7. 트랜잭션을 로그로 남긴다.
 
 <div align="center">
-    <img src="./img/1.png" alt="" style="width: 700px" />
+    <img src="./img/4.png" alt="" style="width: 700px" />
 </div>
 
 <br/>
@@ -103,7 +103,7 @@ func processClient(connection net.Conn) {
 ### 1-2. 클라이언트 호스트 명 식별
 
 <div align="center">
-    <img src="./img/2.png" alt="" style="width: 700px" />
+    <img src="./img/1.png" alt="" style="width: 700px" />
 </div>
 
 - 대부분의 웹 서버는 역방향 DNS를 사용해 클라이언트의 IP 주소를 클라이언트의 호스트 명으로 반환하도록 설정되어 있다.
@@ -114,7 +114,7 @@ func processClient(connection net.Conn) {
 ### 1-3. ident 프로토콜로 클라이언트 사용자 알아내기
 
 <div align="center">
-    <img src="./img/3.png" alt="" style="width: 700px" />
+    <img src="./img/2.png" alt="" style="width: 700px" />
 </div>
 
 
@@ -132,7 +132,7 @@ func processClient(connection net.Conn) {
 3. 요청 메시지 구성하기
 
 <div align="center">
-    <img src="./img/4.png" alt="" style="width: 700px" />
+    <img src="./img/3.png" alt="" style="width: 700px" />
 </div>
 
 
