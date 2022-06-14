@@ -149,8 +149,150 @@ function FindProxyForURL(url, host) {
 
 |                        클라이언트 &rarr; 웹 서버                        |                                       클라이언트 &rarr; 프락시                                        |
 |:---------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|
-| ```GET /index.html HTTP/1.0<br/>User-Agent: SuperBrowservl.3``` | ```GET http://www.marys-antiques.com/index.html HTTP/1.0<br/>User-Agent: SuperBrowser vl.3``` |
+| GET /index.html HTTP/1.0<br/>User-Agent: SuperBrowservl. | GET http://www.marys-antiques.com/index.html HTTP/1.0<br/>User-Agent: SuperBrowser vl.3 |
 |                     without 스킴, 호스트, 포트 번호                      |                                          완전한 URI 형태                                           |
 
 > 기존 HTTP 설계는 클라이언트 &harr; 서버로 불필요한 정보 전송 방지를 위해 `스킴`, `호스트`가 없는 URI 전송  
 > 프락시가 부상하면서 프락시 &harr; 서버 connection을 맺어야 하기 때문에 서버 정보를 알 필요가 있어 완전한 URI 전송
+
+### 6.5.2 가상 호스팅에서 일어나는 같은 문제
+
+> 가상 호스팅 웹 서버는 `Host` & `Port`에 대한 정보가 담겨 있는 `Host` 헤더 요구
+
+<div align="center">
+    <img src="./img/13.png" alt="" />
+</div>
+
+### 6.5.4 프락시는 프락시 요청과 서버 요청을 모두 다룰 수 있다
+
+- `완전한 URI` &rarr; 프락시 해당 URL 사용
+- `부분 URI`
+  - `Host 헤더 있는 경우` &rarr; Host 헤더로 서버 Host와 포트 번호 확인
+  - `Host 헤더 없는 경우` 
+    - `프락시 = 리버스 프락시인 경우` &rarr; 프록시 내부에 서버 주소 및 포트 번호 설정
+    - `프락시 = 인터셉트 프락시인 경우` &rarr; 원 IP 주소와 포트 번호 사용
+- `모두 실패한 경우` &rarr; 에러 메시지(= Host 헤더를 지원 요청) 반환
+
+### 6.5.6 URI 클라이언트 자동확장과 호스트 명 분석(Hostname Resolution)
+
+> 호스트가 발견되지 않는 경우 호스트 명의 짧은 약어로 판단 &rarr; 확장 URI 제공  
+> "yahoo" 입력 &rarr; "www.yahoo.com" 로 리다이렉션
+
+- 확장 URI 반례
+  - `oreilly.com` 도메인 존재하고 `host7`을 입력한다면 도메인의 DNS는 자동으로 `host7.oreilly.com` 확장 &rarr; **완전하지도 유효하지도 않은 호스트 명**
+
+### 6.5.7 프락시 없는 URI 분석(URI Resolution)
+
+<div align="center">
+    <img src="./img/14.png" alt="" />
+</div>
+
+### 6.5.8 명시적인 프락시를 사용할 때의 URI 분석
+
+> 명시적인 프락시가 있는 경우 부분 호스트 명 자동 확장 X
+
+<div align="center">
+    <img src="./img/15.png" alt="" />
+</div>
+
+### 6.5.9 인터셉트 프락시를 이용한 URI 분석
+
+<div align="center">
+    <img src="./img/16.png" alt="" />
+</div>
+
+```text
+(1) 사용자는 브라우저로 "oreilly" 타이핑하여 URI 접근
+(2a) 브라우저는 호스트 "oreilly"를 DNS를 통해 찾아보지만 실패
+(3a) 브라우저는 ""oreilly -> "www.oreilly.com"으로 자동확장
+(3b) 브라우저는 DNS를 통해 해당 호스트를 IP 주소로 변환하여 브라우저에 반환
+(4a) 클라이언트는 성공할 때까지 모든 IP 주소에 대해 접속 시도, 첫 번째 접속 시도는 프락시 서버에 의해 종료 -> 클라이언트 입장에선 웹 서버와 통신했다고 판단하지만 웹 서버가 죽었을 가능성 존재
+(5b) 프락시가 원 서버와 통신할 준비가 되었을 때 프락시가 다운된 서버를 바라보고 있었다는 사실 파악 -> 역방향 DNS lookup을 통해 다른 IP 주소 시도
+```
+
+## 6.6 메시지 추적
+
+<div align="center">
+    <img src="./img/17.png" alt="" />
+</div>
+
+### 6.6.1 Via 헤더
+
+> Via 헤더 필드는 메시지가 지나는 각 중간 노드 정보 나열
+
+```http request
+Via: 1.1 proxy-62.irenes-isp.net, 1.0 cache.joes-hardware.com
+```
+
+<div align="center">
+    <img src="./img/18.png" alt="" />
+</div>
+
+- Via 헤더 문법
+
+|항목|설명|
+|:-----:|:-------|
+|프로토콜 이름|`HTTP` 생략 가능|
+|프로토콜 버전|수신한 메시지의 버전, 버전의 형태|
+|노드 이름|중개자의 호스트와 포트 번호|
+|노드 코멘트|중개자 노드를 서술하는 선택적인 주석|
+|Via 요청과 응답 경로|요청 메시지와 응답 메시지 모두 프락시를 지나므로 Via 헤더 필요|
+|Via와 게이트웨이|특정 프락시는 HTTP 외 프로토콜을 사용할 수 있는 게이트웨이 기능 제공|
+|Server 헤더와 Via 헤더|원 서버에 의해 사용되는 소프트웨어 ex) Server: Apache/1.3.14<br/>Server 헤더는 원 서버를 위해 존재하고 Via 헤더는 프락시를 위해 존재|
+|Via가 개인정보 보호와 보안에 미치는 영향|프락시 서버가 네트워크 방화벽 일부인 경우 호스트, 포트 정보 전달 x<br/>방화벽 뒤 네트워크 아키텍쳐 정보 악이용 가능<br/>```Via: 1.0 foo, 1.1 devirus.company.com, 1.1 access-logger.company.com```<br/>-> ```Via: 1.0 foo, 1.1 concealed-stuff```|
+
+<div align="center">
+    <img src="./img/19.png" alt="" />
+</div>
+
+### 6.6.2 TRACE 메서드
+
+<div align="center">
+    <img src="./img/20.png" alt="" />
+</div>
+
+- `Max-Forwards 헤더` : 요청 메시지가 다음 홉으로 전달될 수 있는 횟수
+  - 만약 `Max-Forwards = 0`이면 더 이상 전달하지 않고 반드시 클라이언트에게 반환
+
+## 6.7 프락시 인증
+
+> `Proxy Authorization` 헤더 필드를 통해 접근 권한 판단 가능
+
+<div align="center">
+    <img src="./img/21.png" alt="" />
+</div>
+
+- 접근 권한 없는 경우
+  - 407 `Proxy Authorization Required` 상태코드 반환 
+  - 자격을 다시 획득하여 `Proxy Authorization` 헤더 필드에 담아 재요청
+
+## 6.8 프락시 상호운용성
+
+### 6.8.2 OPTIONS: 어떤 기능을 지원하는지 알아보기
+
+<div align="center">
+    <img src="./img/22.png" alt="" />
+</div>
+
+- `OPTIONS` 메서드 예시
+
+```
+// 서버 전체 정보 요청
+
+OPTIONS * HTTP/1.1
+```
+
+```
+OPTIONS http://www.joes-hardware.com/index.html HTTP/1.1
+static HTML file wouldn't accept a POST method.
+```
+
+### 6.8.3 Allow 헤더
+
+> Allow 헤더를 통해 요청 URI가 지원하는 메서드 정보 반환
+
+```http request
+Allow: GET, HEAD, PUT
+```
+
+- `Allow 헤더`는 **새 리소스가 지원했으면 하는 메서드를 추천**하기 위해 요청 헤더로 사용 가능
